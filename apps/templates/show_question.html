@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вопросы</title>
+</head>
+<body>
+    <h1>Ответьте на вопрос</h1>
+    <p>{{ question.text }}</p>
+    <form action="{% url 'handle_answer' %}" method="post">
+        {% csrf_token %}
+        {% for answer in answers %}
+            <input type="radio" name="answer" value="{{ answer.id }}"> {{ answer.text }}<br>
+        {% endfor %}
+        <button type="submit">Ответить</button>
+    </form>
+</body>
+</html>

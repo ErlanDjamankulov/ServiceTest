@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выберите тему для теста</title>
+</head>
+<body>
+    <h1>Выберите тему для теста</h1>
+    <ul>
+        {% for topic in topics %}
+            <li><a href="{% url 'start_test' topic.id %}">{{ topic.title }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
